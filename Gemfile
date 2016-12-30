@@ -18,6 +18,7 @@ gem 'autoprefixer-rails'
 gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
+gem 'cloudinary'
 
 group :development, :test do
   gem 'binding_of_caller'
