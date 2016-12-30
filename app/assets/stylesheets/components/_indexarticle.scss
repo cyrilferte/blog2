@@ -1,0 +1,172 @@
+$bg     : #F5F5F5;
+$grey   : #797979;
+$primary : #f89406;
+body {
+    background:$bg;
+    font:15px open sans;
+    letter-spacing:-.02em;
+}
+
+* {
+    box-sizing:border-box;
+}
+
+
+icon {
+    font-family:fontawesome;
+}
+
+.post:nth-child(3n -1){
+    margin:0 2%;
+}
+
+.post {
+    background:white;
+    width:100%;
+    border-radius:3px;
+    border:1px solid darken($bg,10%);
+    overflow:hidden;
+    box-shadow:0 3px 3px rgba(darken($bg,10%),.5);
+    float:left;
+    display: inline-block;
+    
+    .post-image {
+        width:100%;
+        height:0;
+        padding-bottom:60%;
+        overflow:hidden;
+        position: relative;
+        background-size:cover!important;
+        background-position:center center!important;
+        // Shadow over the image
+        &:after {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width:100%;
+            height:50px;
+            background:linear-gradient(rgba(0,0,0,.0), rgba(0,0,0,.2));
+            z-index:2;
+            content:"",
+        }
+        
+        
+        .post-author {
+            background:$primary;
+            padding:.3em 1em;
+            color:white;
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            z-index:10;
+            letter-spacing:-0.07em;
+        }
+    }
+    
+    .post-card {
+        padding:1em 1.5em;
+        
+        
+        .post-title {
+            font-weight:700;
+            font-size:1.3em;
+            margin:.8em 0 1em -.1em;
+            letter-spacing:-0.08em;
+            color:darken($grey,20%);
+            text-decoration:none;
+            display: inline-block;
+            
+            &:hover {
+                color:darken($grey,40%);
+            }
+        }
+        .post-date {
+            color:$grey;
+            padding-bottom:.5em;
+            margin-bottom:.8em;
+            font-size:.9em;
+            border-bottom:1px solid darken($bg,10%);
+        }
+       
+        .post-cat {
+            text-transform:uppercase;
+            color:$grey;
+            font-size:.9em;
+        }
+        .post-read {
+            text-decoration:none;
+            text-transform:uppercase;
+            color:$primary;
+            font-weight:700;
+            font-size:.9em;
+            letter-spacing:-0.1em;
+            margin-top:1em;
+            display: inline-block;
+            text-align:right;
+            width: 100%;
+            
+            &:hover {
+                color:darken($primary,10%);
+            }
+        }
+        .post-share {
+            margin-bottom:.7em;
+            overflow: hidden;
+            
+            // Share Icon
+            label {
+                position: relative;
+                z-index:2;
+                icon {
+                    margin-right:.5em;
+                    cursor:pointer;
+                    color:$grey;
+                    
+                    &:hover {
+                        color:$primary;
+                    }
+                }
+            }
+            
+            
+            .post-share-options {
+                display: inline-block;
+                margin-left:-200px;
+                opacity:0;
+                transition:.3s cubic-bezier(0, 0, .58, 1);
+                z-index:1;
+                position: relative;
+                a {
+                    text-decoration:none;
+                    color:$grey;
+                    display: inline-block;
+                    width:1em;
+                    text-align:center;
+                    font-size:1.2em;
+                    
+                    &:hover {
+                        color:$primary;
+                    }
+                }
+            }
+            
+            // Hide the checkbox
+            input[type=checkbox]{
+                display:none;
+            }
+            
+            input:checked + label{
+                .post-share-options {
+                    margin-left:0;
+                    opacity:1
+                }
+            }
+        }
+        
+    }
+}
+.article-post{
+    height:750px;
+    min-height :700px;
+}

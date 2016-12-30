@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row">
+
+
+    <% @posts.each do |post| %>
+    <div class="col-md-4 article-post">
+    <article ng-repeat="post in posts" class="post">
+        <div class="post-image" style="background:url('<%= post.photo? ? cloudinary_url(post.photo.path) : image_path("http://www.planwallpaper.com/static/images/colorful-triangles-background_yB0qTG6.jpg") %>')">
+               
+            <div class="post-author"><%=post.author? ? post.author : "Author" %></div>
+        </div>
+        <div class="post-card">
+            
+            <div class="post-cat"><%=post.category? ? post.category :  "category"  %></div>
+            
+            <a href="<%= post_path(post) %>" class="post-title"><h2><%= post.title %></h2></a>
+            <div class="post-date"> <h6><%= post.created_at.strftime('%b %d, %Y') %></h6></div>
+            <div class="post-content"><%= raw(post.body).truncate(500) %></div>
+            <%= link_to "READ MORE", post_path(post) %>
+            
+        </div> 
+    </article></div>
+     <% end %>
+</div></div>

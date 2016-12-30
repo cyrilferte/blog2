@@ -1,0 +1,8 @@
+<div class="container">
+  <div class=" blog-content">
+    <h2 class="text-center"><%= @post.title %></h2>
+    <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
+    <h5 class="text-center"><%= @post.author %></h5><br><br>
+    <div><%= raw @post.body %></div>
+  </div>
+</div>
